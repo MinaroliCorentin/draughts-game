@@ -2,13 +2,13 @@ package BoardFactory.ConcreteProduct;
 
 import BoardFactory.Board;
 
-public class BRABoard implements Board {
+public class BRCBoard implements Board {
 
     private int[] board;
     private final int LENGTH = 8  ;
     private final int WIDTH = 8;
 
-    public BRABoard() {
+    public BRCBoard() {
 
         this.board = new int[LENGTH * WIDTH];
     }

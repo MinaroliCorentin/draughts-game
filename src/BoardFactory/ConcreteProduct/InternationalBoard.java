@@ -4,44 +4,42 @@ import BoardFactory.Board;
 
 public class InternationalBoard implements Board {
 
-    private int[] board;
-    private final int LENGTH = 10  ;
-    private final int WIDTH = 10;
+    private final long initialWhitePawns ;
+    private final long initialBlackPawns ;
 
     public InternationalBoard() {
 
-        this.board = new int[LENGTH * WIDTH];
+        this.initialWhitePawns = 0b11111_11111_0_11111_11111_0_00000_00000_0_00000_00000_0_00000_00000L ;
+        this.initialBlackPawns = 0b00000_00000_0_00000_00000_0_00000_00000_0_11111_11111_0_11111_11111L ;
+
     }
 
     @Override
     public void display() {
 
-        for (int i = 0; i < WIDTH * LENGTH; i++) {
-            switch (getter(i) & 0 ) {
-                case 0x00 -> System.out.println("null");
-                case 0x10 -> System.out.println("Blanc");
-                case 0x20 -> System.out.println("Noir");
+        int nb = 0 ;
+        for ( int i = 53 ; i >= 0 ; i--){
+
+            if (i % 11 == 10) {
+                continue;
             }
+
+            long isBlack = (this.initialBlackPawns >>> i) & 1L;
+            long isWhite = (this.initialWhitePawns >>> i) & 1L;
+
+            if ( isBlack == 1L ) {
+                System.out.print('\u26C0' + " ");
+            } else if (isWhite == 1L){
+                System.out.print('\u26C2' + " ");
+            } else {
+                System.out.print('\u25A1' + " ");
+            }
+            nb ++ ;
+            if (nb % 5 == 0){
+                System.out.println();
+            }
+
         }
-    }
 
-    public int getter(int a ){
-            return this.board[a];
-        }
-
-    public int[] getBoard() {
-        return board;
-    }
-
-    public void setBoard(int[] board) {
-        this.board = board;
-    }
-
-    public int getLENGTH() {
-        return LENGTH;
-    }
-
-    public int getWIDTH() {
-        return WIDTH;
     }
 }
