@@ -9,8 +9,8 @@ public class InternationalBoard implements Board {
 
     public InternationalBoard() {
 
-        this.initialWhitePawns = 0b11111_11111_0_11111_11111_0_00000_00000_0_00000_00000_0_00000_00000L ;
-        this.initialBlackPawns = 0b00000_00000_0_00000_00000_0_00000_00000_0_11111_11111_0_11111_11111L ;
+        this.initialWhitePawns = 0b11111_11111_11111_11111_00000_00000_00000_00000_00000_00000L ;
+        this.initialBlackPawns = 0b00000_00000_00000_00000_00000_00000_11111_11111_11111_11111L ;
 
     }
 
@@ -18,7 +18,7 @@ public class InternationalBoard implements Board {
     public void display() {
 
         int nb = 0 ;
-        for ( int i = 53 ; i >= 0 ; i--){
+        for ( long i = this.initialBlackPawns ; i >= 0 ; i--){
 
             if (i % 11 == 10) {
                 continue;
@@ -35,7 +35,7 @@ public class InternationalBoard implements Board {
                 System.out.print('\u25A1' + " ");
             }
             nb ++ ;
-            if (nb % 5 == 0){
+            if (nb % 5 == 0){ // Next Line
                 System.out.println();
             }
 
