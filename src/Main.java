@@ -1,9 +1,10 @@
+import BoardFactory.Board;
 import BoardFactory.ConcreteCreator.InternationalMode;
 import BoardFactory.GameMode;
 
 void main() {
 
         GameMode gameMode = new InternationalMode();
-        gameMode.createBoard();
+        Board board = gameMode.createBoard();
 
 }
