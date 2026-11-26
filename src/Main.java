@@ -6,5 +6,6 @@ void main() {
 
         GameMode gameMode = new InternationalMode();
         Board board = gameMode.createBoard();
+        board.display();
 
 }

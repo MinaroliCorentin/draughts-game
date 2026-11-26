@@ -14,7 +14,11 @@ public class MovementAvailable {
         return ((board.getWhitePawns() >>> 6) & board.getEmptySquares()) != 0L;
     }
 
-    public long getWhiteAttackersTopLeft() {
+    public boolean canWhiteMoveTopRight() {
+        return ((board.getWhitePawns() >>> 4) & board.getEmptySquares()) != 0L;
+    }
+
+    public long WhiteAttackersTopLeft() {
 
         long empty = board.getEmptySquares();
         long black = board.getBlackPawns();
@@ -24,5 +28,6 @@ public class MovementAvailable {
         return (jumpableEnemies << 6) & white;
 
     }
+
 
 }
