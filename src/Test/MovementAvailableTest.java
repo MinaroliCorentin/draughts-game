@@ -63,5 +63,10 @@ class MovementAvailableTest {
         assertEquals(0b00000_00000_0_00100_00000_0_00000_00000_0_00000_00000_0_00000_00000L, board.getWhitePawns());
     }
 
+    @Test
+    void tmp(){
+        assert (1 == 2);
+    }
+
 
 }
